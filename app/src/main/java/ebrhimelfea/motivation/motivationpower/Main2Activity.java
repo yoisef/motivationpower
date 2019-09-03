@@ -61,8 +61,10 @@ public class Main2Activity extends AppCompatActivity {
         bannerlisener();
 
 
+
+
         pdfViewer=findViewById(R.id.pdfView);
-        pdfViewer.fromAsset("1984.pdf")
+        pdfViewer.fromAsset("motivpower.pdf")
                 //   .pages(0, 2, 1, 3, 3, 3) // all pages are displayed by default
                 .enableSwipe(true) // allows to block changing pages using swipe
                 .swipeHorizontal(true)
@@ -115,6 +117,25 @@ public class Main2Activity extends AppCompatActivity {
 
     }
 
+    private void hideSystemUI() {
+        // Set the IMMERSIVE flag.
+        // Set the content to appear under the system bars so that the content
+        // doesn't resize when the system bars hide and show.
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
+                        | View. SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+
+
+
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -131,7 +152,7 @@ public class Main2Activity extends AppCompatActivity {
                 return true;
             case R.id.save:
 
-                //   getSharedPreferences("curpage", Context.MODE_PRIVATE).edit().putInt("cur",pdfViewer.getCurrentPage()).apply();
+                 getSharedPreferences("curpage", Context.MODE_PRIVATE).edit().putInt("cur",pdfViewer.getCurrentPage()).apply();
                 return true;
             case R.id.rate:
                 Toast.makeText(getApplicationContext(),"Item 3 Selected",Toast.LENGTH_LONG).show();
@@ -201,7 +222,7 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!nump.getText().toString().equals(""))
                 {
-                    //pdfViewer.jumpTo(Integer.parseInt(nump.getText().toString())-1);
+                    pdfViewer.jumpTo(Integer.parseInt(nump.getText().toString())-1);
                     alertDialog.cancel();
 
 
@@ -228,10 +249,10 @@ public class Main2Activity extends AppCompatActivity {
     public  void  loadinterstial()
     {
         MobileAds.initialize(this,
-                "ca-app-pub-9508195472439107~9911966736");
+                "ca-app-pub-9508195472439107~4041042042");
 
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-9508195472439107/7770332206");
+        mInterstitialAd.setAdUnitId("ca-app-pub-9508195472439107/1303198069");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
 
@@ -241,7 +262,7 @@ public class Main2Activity extends AppCompatActivity {
     {
         AdView adView = new AdView(this);
         adView.setAdSize(AdSize.BANNER);
-        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+        adView.setAdUnitId("ca-app-pub-9508195472439107/5535933025");
 
         mAdView = findViewById(R.id.adView2);
         AdRequest adRequest = new AdRequest.Builder().build();

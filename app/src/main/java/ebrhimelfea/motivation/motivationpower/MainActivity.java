@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     {
         AdView adView = new AdView(this);
         adView.setAdSize(AdSize.BANNER);
-        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+        adView.setAdUnitId("ca-app-pub-9508195472439107/5535933025");
 
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -174,10 +174,10 @@ public class MainActivity extends AppCompatActivity {
     public  void  loadinterstial()
     {
         MobileAds.initialize(this,
-                "ca-app-pub-9508195472439107~9911966736");
+                "ca-app-pub-9508195472439107~4041042042");
 
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-9508195472439107/7770332206");
+        mInterstitialAd.setAdUnitId("ca-app-pub-9508195472439107/1303198069");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
 
