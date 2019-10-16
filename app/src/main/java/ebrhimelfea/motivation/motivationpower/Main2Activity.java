@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.barteksc.pdfviewer.PDFView;
@@ -37,6 +39,8 @@ public class Main2Activity extends AppCompatActivity {
     Toolbar toolbar;
     AlertDialog alertDialog;
     AlertDialog.Builder builder;
+    ImageView rightpage,leftpage;
+    TextView currentpagetxt,pagescounttxt;
 
     int startedpage;
     EditText nump;
@@ -45,6 +49,11 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        pdfViewer=findViewById(R.id.pdfView);
+        rightpage=findViewById(R.id.rightarrow);
+        leftpage=findViewById(R.id.leftarrow);
+        currentpagetxt=findViewById(R.id.currentpage);
+        pagescounttxt=findViewById(R.id.pagescount);
 
         Intent intent=getIntent();
         startedpage=intent.getIntExtra("cur",0);
@@ -63,11 +72,11 @@ public class Main2Activity extends AppCompatActivity {
 
 
 
-        pdfViewer=findViewById(R.id.pdfView);
-        pdfViewer.fromAsset("motivpower.pdf")
+
+        pdfViewer.fromAsset("mopower.pdf")
                 //   .pages(0, 2, 1, 3, 3, 3) // all pages are displayed by default
                 .enableSwipe(true) // allows to block changing pages using swipe
-                .swipeHorizontal(true)
+               .swipeHorizontal(true)
                 .enableDoubletap(true)
                 .defaultPage(startedpage)
 
@@ -78,6 +87,9 @@ public class Main2Activity extends AppCompatActivity {
                 .onLoad(new OnLoadCompleteListener() {
                     @Override
                     public void loadComplete(int nbPages) {
+
+                        pagescounttxt.setText(String.valueOf(pdfViewer.getPageCount()));
+                        currentpagetxt.setText(String.valueOf(pdfViewer.getCurrentPage()+1));
 
                     }
                 }) // called after document is loaded and starts to be rendered
@@ -91,9 +103,11 @@ public class Main2Activity extends AppCompatActivity {
                             Log.d("TAG", "The interstitial wasn't loaded yet.");
                         }
 
+                        currentpagetxt.setText(String.valueOf(pdfViewer.getCurrentPage()+1));
+
                     }
                 })
-                //  .onPageScroll(onPageScrollListener)
+               //  .onPageScroll(onPageScrollListener)
                 //  .onError(onErrorListener)
                 //  .onPageError(onPageErrorListener)
                 //   .onRender(onRenderListener) // called after document is rendered for the first time
@@ -102,39 +116,52 @@ public class Main2Activity extends AppCompatActivity {
                 //   .onLongPress(onLongPressListener)
                 .enableAnnotationRendering(false) // render annotations (such as comments, colors or forms)
                 .password(null)
-                .scrollHandle(new DefaultScrollHandle(this))
+               .scrollHandle(new DefaultScrollHandle(this))
                 .enableAntialiasing(true) // improve rendering a little bit on low-res screens
                 // spacing between pages in dp. To define spacing color, set view background
                 .spacing(0)
                 .autoSpacing(true) // add dynamic spacing to fit each page on its own on the screen
                 // .linkHandler(DefaultLinkHandler)
                 .pageFitPolicy(FitPolicy.WIDTH)
-                .pageSnap(true) // snap pages to screen boundaries
+              //  .pageSnap(true) // snap pages to screen boundaries
                 .pageFling(true) // make a fling change only a single page like ViewPager
                 .nightMode(false) // toggle night mode
                 .load();
 
 
+
+        rightpage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                if (pdfViewer.getCurrentPage()!=pdfViewer.getPageCount())
+                {
+                    pdfViewer.jumpTo(pdfViewer.getCurrentPage()+1);
+                    currentpagetxt.setText(String.valueOf(pdfViewer.getCurrentPage()+1));
+                }
+            }
+        });
+
+        leftpage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (pdfViewer.getCurrentPage()!=0)
+                {
+                    pdfViewer.jumpTo(pdfViewer.getCurrentPage()-1);
+                    currentpagetxt.setText(String.valueOf(pdfViewer.getCurrentPage()+1));
+                }
+
+
+
+
+
+            }
+        });
+
+
     }
-
-    private void hideSystemUI() {
-        // Set the IMMERSIVE flag.
-        // Set the content to appear under the system bars so that the content
-        // doesn't resize when the system bars hide and show.
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-                        | View. SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-
-
-
-
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -152,7 +179,7 @@ public class Main2Activity extends AppCompatActivity {
                 return true;
             case R.id.save:
 
-                 getSharedPreferences("curpage", Context.MODE_PRIVATE).edit().putInt("cur",pdfViewer.getCurrentPage()).apply();
+                  getSharedPreferences("curpage", Context.MODE_PRIVATE).edit().putInt("cur",pdfViewer.getCurrentPage()).apply();
                 return true;
             case R.id.rate:
                 Toast.makeText(getApplicationContext(),"Item 3 Selected",Toast.LENGTH_LONG).show();
@@ -203,6 +230,11 @@ public class Main2Activity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
     public void choosepage()
     {
         Button go ,cancel;
@@ -262,7 +294,7 @@ public class Main2Activity extends AppCompatActivity {
     {
         AdView adView = new AdView(this);
         adView.setAdSize(AdSize.BANNER);
-        adView.setAdUnitId("ca-app-pub-9508195472439107/5535933025");
+        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
 
         mAdView = findViewById(R.id.adView2);
         AdRequest adRequest = new AdRequest.Builder().build();

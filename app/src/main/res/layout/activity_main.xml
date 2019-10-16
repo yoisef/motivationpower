@@ -4,84 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
+    android:gravity="center"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     >
-
-    <RelativeLayout
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_weight="1.5"
-        android:background="@drawable/mainnn"
+        android:scaleType="centerCrop"
 
+        android:src="@drawable/mostafaelfeqe"
+        android:layout_weight="1"
         android:layout_height="0dp" />
+
     <TextView
         android:layout_width="match_parent"
-        android:text="“عش كل لحظة وكأنها آخر لحظة في حياتك
+        android:layout_margin="5dp"
+
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:fontFamily="@font/cairo"
+        android:text="عش كل لحظة وكأنها آخر لحظة في حياتك
 عش بحبك لله عز وجل
 عش بالتطبع بأخلاق الرسول عليه الصلاة والسلام
 عش بالأمل ، عش بالكفاح ، عش بالصبر
-عش بالحب ، وقدر قيمة الحياة .”
-"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:layout_margin="5dp"
-        android:fontFamily="@font/arabic"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:padding="5dp"
+عش بالحب ، وقدر قيمة الحياة"
         android:layout_height="wrap_content" />
-    <RelativeLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp" >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_margin="10dp"
-            android:layout_height="match_parent">
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
         <Button
             android:layout_width="match_parent"
-            android:text="أقرأ"
+            android:text="@string/read"
+            android:layout_gravity="center"
             android:textColor="#fff"
             android:id="@+id/readid"
             android:textStyle="bold"
             android:layout_margin="5dp"
-            android:background="#000"
+            android:background="@color/darkblue"
             android:textSize="25dp"
             android:layout_height="wrap_content" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:text="أكمل القراءة"
-                android:id="@+id/readonid"
-                android:background="#000"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:layout_margin="5dp"
-                android:textSize="25dp"
-                android:layout_height="wrap_content" />
+        <Button
+            android:layout_width="match_parent"
+            android:text="@string/readon"
+            android:id="@+id/readonid"
+            android:background="@color/darkblue"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:textSize="25dp"
+            android:layout_height="wrap_content" />
 
-        </LinearLayout>
+    </LinearLayout>
 
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/adView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-9508195472439107/5535933025">
-
-
-        </com.google.android.gms.ads.AdView>
-
-
-
-
-    </RelativeLayout>
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView1"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-9508195472439107/5535933025">
+    </com.google.android.gms.ads.AdView>
 
 
 
@@ -89,5 +82,12 @@
 
 
 
+    </LinearLayout>
 
-</LinearLayout>
+
+
+
+
+
+
+
