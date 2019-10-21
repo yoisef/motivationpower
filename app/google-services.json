@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "945371820282",
+    "firebase_url": "https://ngombook-235809.firebaseio.com",
+    "project_id": "ngombook-235809",
+    "storage_bucket": "ngombook-235809.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945371820282:android:3b680452ba59e73f",
+        "android_client_info": {
+          "package_name": "com.ngombookapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945371820282-4c8r313g2sahqm0k4lq9nc2ku2mpli0e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ngombookapp",
+            "certificate_hash": "8ddec72c2f7295a58521c27aa38029eae3178498"
+          }
+        },
+        {
+          "client_id": "945371820282-cgunhtgofi2k9rhpnvkgp6u58noondsv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ngombookapp",
+            "certificate_hash": "9fca1c0e72ab7b7764f343ad143ce4c562f09273"
+          }
+        },
+        {
+          "client_id": "945371820282-v2v0e6h0ad35g06r89797ofbrcmp08oq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlK4bi7OO5avkRXERn0SgqJRXY3Xbm4K4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945371820282-v2v0e6h0ad35g06r89797ofbrcmp08oq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945371820282:android:8153099b87de62d6d29943",
+        "android_client_info": {
+          "package_name": "ebrhimelfea.motivation.motivationpower"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945371820282-arggi5i3d0uht4uq5rrncft2re06rbfo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ebrhimelfea.motivation.motivationpower",
+            "certificate_hash": "9fca1c0e72ab7b7764f343ad143ce4c562f09273"
+          }
+        },
+        {
+          "client_id": "945371820282-v2v0e6h0ad35g06r89797ofbrcmp08oq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlK4bi7OO5avkRXERn0SgqJRXY3Xbm4K4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945371820282-v2v0e6h0ad35g06r89797ofbrcmp08oq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
